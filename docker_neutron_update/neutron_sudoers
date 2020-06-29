@@ -1,0 +1,6 @@
+Defaults:neutron !requiretty
+
+neutron ALL = (root) NOPASSWD: /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf *
+neutron ALL=(root) NOPASSWD:SETENV: /usr/local/bin/copy_file.sh
+
+
