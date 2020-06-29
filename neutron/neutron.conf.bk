@@ -1,0 +1,74 @@
+[DEFAULT]
+debug = false
+bind_host = 10.255.26.72
+bind_port = 9696
+core_plugin = ml2
+service_plugins = router
+allow_overlapping_ips = true
+notify_nova_on_port_status_changes = true
+notify_nova_on_port_data_changes = true
+dhcp_agents_per_network = 1
+auth_strategy = keystone
+#global_physnet_mtu = 9000
+transport_url = rabbit://openstack:Y2g8AiB6DjwpvQRKqdU7mXcolwPHNQUT@SPGM01DRCTRL01:5672,openstack:Y2g8AiB6DjwpvQRKqdU7mXcolwPHNQUT@SPGM01DRCTRL02:5672,openstack:Y2g8AiB6DjwpvQRKqdU7mXcolwPHNQUT@SPGM01DRCTRL03:5672
+
+[agent]
+root_helper = sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf
+
+[cors]
+
+[cors.subdomain]
+
+[database]
+connection = mysql+pymysql://neutron:CiH7J2U88DhWNECBYQH7A5Okyu3F4uRe@os-controller/neutron
+max_retries = -1
+
+[keystone_authtoken]
+auth_uri = http://os-controller:5000/v3
+auth_url = http://os-controller:5000/v3
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = neutron
+password = ATqCSRFyZs28lOUHdAmzSxtSN7jht2bL
+memcached_servers = SPGM01DRCTRL01:11211,SPGM01DRCTRL02:11211,SPGM01DRCTRL03:11211
+#memcache_security_strategy = ENCRYPT
+#memcache_secret_key = fuVZaogNkQ0XkfvXmogrODKSr3kDvk9U
+
+[matchmaker_redis]
+
+[nova]
+auth_url = http://os-controller:5000
+auth_type = password
+os_region_name = North_VN
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = nova
+password = CVVW5ThnUFuAXFCF3OLk1gj6atg9NB5m
+
+[oslo_concurrency]
+lock_path = /var/lib/neutron/tmp
+
+[oslo_messaging_amqp]
+
+[oslo_messaging_kafka]
+
+[oslo_messaging_notifications]
+
+[oslo_messaging_rabbit]
+
+[oslo_messaging_zmq]
+
+[oslo_middleware]
+
+[oslo_policy]
+
+[qos]
+
+[quotas]
+quota_security_group = 50
+quota_security_group_rule = 100
+
+[ssl]
